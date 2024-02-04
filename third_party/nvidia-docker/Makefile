@@ -23,14 +23,6 @@ ifeq ($(strip $(LIB_VERSION)),)
 $(error LIB_VERSION must be specified)
 endif
 
-# Define the nvidia-container-toolkit version on which the nvidia-docker2
-# package depends. It is recommended that the TOOLKIT_TAG and the LIB_TAG match.
-TOOLKIT_VERSION ?= # Set by CI
-TOOLKIT_TAG ?= # Set by CI
-
-ifeq ($(strip $(TOOLKIT_VERSION)),)
-$(error TOOLKIT_VERSION must be specified)
-endif
 
 ifneq ($(TOOLKIT_TAG),$(LIB_TAG))
 $(warning TOOLKIT_TAG=$(TOOLKIT_TAG) and LIB_TAG=$(LIB_TAG) do not match)
